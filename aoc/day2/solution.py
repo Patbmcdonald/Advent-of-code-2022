@@ -36,12 +36,6 @@ class DayTwoSolution(BaseSolution):
                             "Scissors" : ["C","Z"],
                             })
         
-        self.win_map = dict({
-                            "Rock" : "Scissors",
-                            "Paper" : "Rock",
-                            "Scissors" : "Paper",
-                            })
-            
     def _get_one_round_score(self, opp_move:str, my_move:str):
         """ get Round score """
     
