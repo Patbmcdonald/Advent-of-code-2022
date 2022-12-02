@@ -65,7 +65,7 @@ class DayTwoSolution(BaseSolution):
             (my_move in self.move_types["Rock"] and opp_move in self.move_types["Scissors"])):
             return my_shape_score + 6
     
-    def _get_move_change(self, opp_move, my_move):
+    def _get_move_change(self, opp_move:str, my_move:str):
         """X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win. Good luck!"""
     
         if my_move in self.move_types["Rock"]: # Lost
@@ -93,7 +93,7 @@ class DayTwoSolution(BaseSolution):
                 return self.move_types["Scissors"][1]
             
     def part_one(self):
-        """ Return the top elf calories """
+        """ Return total round score """
         
         total_score = 0
         for line in read_lines_to_list("./inputs/day2.txt"):
@@ -105,14 +105,16 @@ class DayTwoSolution(BaseSolution):
         print("total score : {}".format(total_score))
         
     def part_two(self):
-        """ Return the sum of the top 3 elf calories """
+        """ Return total round score when I adjust my move """
         
         total_score = 0
         for line in read_lines_to_list("./inputs/day2.txt"):
             this_line = line.strip()
             moves = this_line.split(" ")
             
+            # Adjust My Move
             new_move = self._get_move_change(moves[0], moves[1])
+            
             total_score += self._get_one_round_score(moves[0], new_move)
             
         print("total score : {}".format(total_score))
