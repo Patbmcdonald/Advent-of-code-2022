@@ -19,7 +19,8 @@ class DayThreeSolution(BaseSolution):
         
         for this_set in sets[1:]:
             duplicates &= this_set
-            
+        
+        # head of the list is our badge
         return duplicates.pop()
         
     def part_one(self):
