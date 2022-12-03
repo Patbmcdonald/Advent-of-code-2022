@@ -20,7 +20,7 @@ class DayThreeSolution(BaseSolution):
         for this_set in sets[1:]:
             duplicates &= this_set
             
-        return list(duplicates)[0]
+        return duplicates.pop()
         
     def part_one(self):
         """ Return the sum of priorities """
