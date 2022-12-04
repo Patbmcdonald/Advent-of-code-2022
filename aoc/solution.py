@@ -51,22 +51,25 @@ class BaseSolution:
         """ Run the puzzle solution. """
         prompt = self._get_puzzle_prompt()
         
-        for line in prompt[0]:
-            print(f"{bcolors.HEADER}{line}")
+        if len(prompt) > 0:
+            for line in prompt[0]:
+                print(f"{bcolors.HEADER}{line}")
             
         print(f"{bcolors.OKGREEN}{self.part_one()}")
         
-        for line in prompt[1]:
-            print(f"{bcolors.HEADER}{line}")
+        if len(prompt) > 0:
+            for line in prompt[1]:
+                print(f"{bcolors.HEADER}{line}")
         
         print(f"{bcolors.OKGREEN}{self.part_two()}")
         
     def show_prompt(self):
         """ Show the puzzle prompt. """
-        prompt = self._get_puzzle_prompt()
+        prompts = self._get_puzzle_prompt()
         
-        for line in prompt[0] + prompt[1]:
-            print(f"{bcolors.HEADER}{line}")
+        for prompt in prompts:
+            for line in prompt:
+                print(f"{bcolors.HEADER}{line}")
 
     def _get_test_data(self, overwrite_day:str=None) -> list:
         return read_lines_to_list("./data/test_data/"+overwrite_day+".txt") if overwrite_day  else read_lines_to_list("./data/test_data/"+self.get_puzzle_day()+".txt") 
@@ -80,7 +83,10 @@ class BaseSolution:
     def _get_puzzle_prompt(self, overwrite_day:str=None) -> list:
         temp_lines = read_lines_to_list("./data/prompts/"+overwrite_day+".txt") if overwrite_day  else read_lines_to_list("./data/prompts/"+self.get_puzzle_day()+".txt") 
 
-        mid_point = temp_lines.index("--- Part Two ---")
+        try:
+            mid_point = temp_lines.index("--- Part Two ---")
+        except ValueError:
+            return temp_lines
         
         return [temp_lines[:mid_point], temp_lines[mid_point-1:]] 
         
