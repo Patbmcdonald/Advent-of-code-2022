@@ -1,5 +1,7 @@
 # Advent-of-code-2022
 
+<!--- advent_readme_stars table --->
+
 Usage: python3 main.py run|test|show_prompt <day1-31>
 
 # Adding a Day
