@@ -16,19 +16,23 @@ class BaseSolution:
         pass
     
     @abstractmethod
-    def test_part_one(self):
-        """ Part One Test. """
-        pass 
-
-    @abstractmethod
-    def test_part_two(self):
-        """ Part Two Test. """
-        pass 
-    
-    @abstractmethod
     def get_puzzle_day(self):
         """ The Puzzle Day. """
         pass
+    
+    def test_part_one(self):
+        """ Test Part One """
+        return self.part_one() == self.part_one_expected_test_value()
+        
+    def test_part_two(self):
+        """ Test Part Two """
+        return self.part_two() == self.part_two_expected_test_value()
+    
+    def part_one_expected_test_value(self):
+        return 0
+    
+    def part_two_expected_test_value(self):
+        return 0
         
     def run_test(self):
         """ Run the two test cases."""

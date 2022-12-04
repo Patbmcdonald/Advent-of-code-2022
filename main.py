@@ -1,5 +1,5 @@
 import sys
-from aoc.enum import SOLUTION_CASES
+from settings import CURRENT_YEAR, SOLUTION_FUNCTIONS
 from aoc.helper import bcolors
 
 
@@ -9,17 +9,18 @@ def main():
 
     if len(args) < 2:
         print(f"{bcolors.FAIL}Invalid Usage.")
-        print("Usage: python3 main.py run|test|show_prompt <day1-31>")
+        print("Usage: python3 main.py run|test|show_prompt <year|defaults-to-current-year> <day1-31>")
         return False
     
     command = args[0]
-    day_to_run = args[1]
+    year = args[1] if len(args) == 3 else CURRENT_YEAR
+    day_to_run = args[1] if len(args) == 2 else args[2]
 
     try:
-            function = SOLUTION_CASES[day_to_run]
+            function = SOLUTION_FUNCTIONS[year][day_to_run]
     except KeyError:
-            print(f"{bcolors.FAIL}Solution for {day_to_run} was not found.")
-            print("Usage: python3 main.py run|test|show_prompt <day1-31>")
+            print(f"{bcolors.FAIL}Solution for Year: {year}, Day: {day_to_run} was not found.")
+            print("Usage: python3 main.py run|test|show_prompt <year|defaults-to-current-year> <day1-31>")
             return False
             
     if command == "test":

@@ -5,6 +5,14 @@ class DayFourSolution(BaseSolution):
     def get_puzzle_day(self):
         return "day4"
     
+    def part_one_expected_test_value(self):
+        """ Return Part One Expected Test Answer """
+        return 2
+        
+    def part_two_expected_test_value(self):
+        """ Return Part Two Expected Test Answer """
+        return 4
+    
     def _fill_pairing_range(self, pair):
         """ We need to fill a set with our start - end """
         this_range = pair.split("-")
@@ -58,10 +66,4 @@ class DayFourSolution(BaseSolution):
                 counter += 1
             
         return counter
-    
-    def test_part_one(self):
-        return self.part_one() == 2
-        
-    def test_part_two(self):
-        return self.part_two() == 4
         

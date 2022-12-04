@@ -5,6 +5,15 @@ class DayOneSolution(BaseSolution):
     def get_puzzle_day(self):
         return "day1"
     
+    def part_one_expected_test_value(self):
+        """ Return Part One Expected Test Answer """
+        return 24000
+        
+    def part_two_expected_test_value(self):
+        """ Return Part Two Expected Test Answer """
+        return 45000
+    
+    
     def _build_calorie_map(self) -> dict:
         """ Build a dictionary of calories and their associated totals."""
         
@@ -48,11 +57,4 @@ class DayOneSolution(BaseSolution):
             total_sum_of_calories+= calorie_mapping_per_elf[index]
             
         return total_sum_of_calories
-        
-    def test_part_one(self):
-        """ Return the top elf calories """
-        return self.part_one() == 24000
-        
-    def test_part_two(self):
-        """ Return the sum of the top 3 elf calories """
-        return self.part_two() == 45000
+    

@@ -8,9 +8,10 @@
 | [Day 1](https://adventofcode.com/2022/day/1) | ⭐ | ⭐ |
 | [Day 2](https://adventofcode.com/2022/day/2) | ⭐ | ⭐ |
 | [Day 3](https://adventofcode.com/2022/day/3) | ⭐ | ⭐ |
+| [Day 4](https://adventofcode.com/2022/day/3) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
-Usage: python3 main.py run|test|show_prompt <day1-31>
+Usage: python3 main.py run|test|show_prompt  <year|defaults-to-current-year> <day1-31>
 
 # Adding a Day
 Copy the `_dayx` folder under the `/aoc` folder and edit solution.py's get_puzzle_day function to day1-31

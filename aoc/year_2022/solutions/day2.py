@@ -1,4 +1,3 @@
-from aoc.helper import read_lines_to_list
 from aoc.solution import BaseSolution
 
 class DayTwoSolution(BaseSolution):
@@ -12,7 +11,15 @@ class DayTwoSolution(BaseSolution):
         
     def get_puzzle_day(self):
         return "day2"
+    
+    def part_one_expected_test_value(self):
+        """ Return Part One Expected Test Answer """
+        return 15
         
+    def part_two_expected_test_value(self):
+        """ Return Part Two Expected Test Answer """
+        return 12
+    
     def _get_one_round_score(self, opp_move:str, my_move:str):
         """ get Round score """
     
@@ -96,10 +103,3 @@ class DayTwoSolution(BaseSolution):
             
         return total_score
     
-    def test_part_one(self):
-        """ Test Part One Solution Against Test Data """
-        return self.part_one() == 15
-        
-    def test_part_two(self):
-        """ Test Part Two Solution Against Test Data """
-        return self.part_two() == 12

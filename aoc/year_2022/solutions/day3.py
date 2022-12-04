@@ -6,6 +6,14 @@ class DayThreeSolution(BaseSolution):
     def get_puzzle_day(self):
         return "day3"
     
+    def part_one_expected_test_value(self):
+        """ Return Part One Expected Test Answer """
+        return 157
+        
+    def part_two_expected_test_value(self):
+        """ Return Part Two Expected Test Answer """
+        return 70
+    
     def _get_priority(self, character):
         """ Get Priority for a given character. """
         return ord(character) - 38  if character.isupper() else ord(character) - 96
@@ -51,11 +59,3 @@ class DayThreeSolution(BaseSolution):
             
         return total_sum
     
-    
-    def test_part_one(self):
-        """ Test Part One Solution Against Test Data """
-        return self.part_one() == 157
-        
-    def test_part_two(self):
-        """ Test Part Two Solution Against Test Data """
-        return self.part_two() == 70
