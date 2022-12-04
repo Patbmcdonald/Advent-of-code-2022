@@ -1,4 +1,3 @@
-from aoc.helper import read_lines_to_list
 from aoc.solution import BaseSolution
 
 class DayOneSolution(BaseSolution):
