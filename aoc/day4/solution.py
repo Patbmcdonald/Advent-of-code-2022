@@ -6,45 +6,55 @@ class DayFourSolution(BaseSolution):
         return "day4"
     
     def part_one(self):
-        
+        """ We want to find the assignment pairs where one range fully contain the other
+            we can do this by filling a set with start to end and unioning the set ^^ 
+        """
         counter = 0
         for line in self._get_puzzle_data():
-            pairings = line.split(",")
             
-            first = self._fill_range(pairings[0])
-            second = self._fill_range(pairings[1])
+            this_pairing = line.split(",")
+            
+            first_pairing = self._fill_pairing_range(this_pairing[0])
+            second_pairing = self._fill_pairing_range(this_pairing[1])
 
-            # Get Union
-            overlaps = first & second
+            # Intersection
+            overlapping_pairings = first_pairing & second_pairing
             
-            # If Overlaps equals either first or second, then we consumed one totally.
-            if overlaps == first or overlaps == second:
+            # If overlapping_pairings equals either first or second, then we consumed one totally.
+            if overlapping_pairings == first_pairing or overlapping_pairings == second_pairing:
                 counter += 1
             
         return counter
         
-    def _fill_range(self, pair):
-        """ Fill in elfs based on range """
-        pairing = pair.split("-")
-        start = int(pairing[0])
-        end = int(pairing[1])
-        overlaps = set()
+    def _fill_pairing_range(self, pair):
+        """ We need to fill a set with our start - end """
+        this_range = pair.split("-")
+        start = int(this_range[0])
+        end = int(this_range[1])
+        pairing_range = set()
+        
+        # Add Start to End + 1 for our 
         for i in range(start, end + 1):
-            overlaps.add(i)
+            pairing_range.add(i)
             
-        return overlaps
-      
+        return pairing_range
+    
     def part_two(self):
+        """ 
+        We want to find  any overlapping_pairings ^^, same as part one, change if statement ^^ 
+        """
         counter = 0
         for line in self._get_puzzle_data():
-            pairings = line.split(",")
             
-            first = self._fill_range(pairings[0])
-            second = self._fill_range(pairings[1])
+            this_pairing = line.split(",")
+            
+            first_pairing = self._fill_pairing_range(this_pairing[0])
+            second_pairing = self._fill_pairing_range(this_pairing[1])
 
-            overlaps = first & second
+            # Intersection
+            overlapping_pairings = first_pairing & second_pairing
             
-            if len(overlaps) > 0:
+            if len(overlapping_pairings) > 0:
                 counter += 1
             
         return counter
