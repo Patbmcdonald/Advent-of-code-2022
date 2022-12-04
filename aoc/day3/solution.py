@@ -3,6 +3,9 @@ from aoc.solution import BaseSolution
 
 class DayThreeSolution(BaseSolution):
     
+    def get_puzzle_day(self):
+        return "day3"
+    
     def _get_priority(self, character):
         """ Get Priority for a given character. """
         return ord(character) - 38  if character.isupper() else ord(character) - 96
@@ -27,18 +30,18 @@ class DayThreeSolution(BaseSolution):
         """ Return the sum of priorities """
         
         total_sum = 0
-        for line in read_lines_to_list("./inputs/day3.txt"):
+        for line in self._get_puzzle_data():
             duplicates = self._split_ransack(line.strip())
             total_sum +=  sum([self._get_priority(x) for x in duplicates])
             
-        print("sum of the priorities : {}".format(total_sum))
+        return total_sum
         
     def part_two(self):
         """ Return the sum of 3 groupings """
         
         total_sum = 0
         group = []
-        for line in read_lines_to_list("./inputs/day3.txt"):
+        for line in self._get_puzzle_data():
             group.append(line.strip())
             
             if len(group) >= 3:    
@@ -46,4 +49,13 @@ class DayThreeSolution(BaseSolution):
                 total_sum +=  self._get_priority(this_badge)
                 group.clear()
             
-        print("sum of the priorities : {}".format(total_sum))
+        return total_sum
+    
+    
+    def test_part_one(self):
+        """ Test Part One Solution Against Test Data """
+        return self.part_one() == 157
+        
+    def test_part_two(self):
+        """ Test Part Two Solution Against Test Data """
+        return self.part_two() == 70

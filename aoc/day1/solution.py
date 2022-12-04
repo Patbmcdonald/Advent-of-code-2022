@@ -2,13 +2,17 @@ from aoc.helper import read_lines_to_list
 from aoc.solution import BaseSolution
 
 class DayOneSolution(BaseSolution):
+    
+    def get_puzzle_day(self):
+        return "day1"
+    
     def _build_calorie_map(self) -> dict:
         """ Build a dictionary of calories and their associated totals."""
         
         totals = {}
         current_index = 1
 
-        for line in read_lines_to_list("./inputs/day1.txt"):
+        for line in self._get_puzzle_data():
             this_line = line.strip()
             
             if len(this_line) == 0:
@@ -29,7 +33,7 @@ class DayOneSolution(BaseSolution):
         # Sort Map by Values and return top 1 
         top_elf_index = sorted(calorie_mapping_per_elf, key=calorie_mapping_per_elf.get, reverse=True)[:1]
         
-        print("Top Elf Calories Total: {}".format(calorie_mapping_per_elf[top_elf_index[0]]))
+        return calorie_mapping_per_elf[top_elf_index[0]]
         
     def part_two(self):
         """ Return the sum of the top 3 elf calories """
@@ -44,4 +48,12 @@ class DayOneSolution(BaseSolution):
         for index in top_elf_3_elfs:
             total_sum_of_calories+= calorie_mapping_per_elf[index]
             
-        print("Top 3 Elf Total: {}".format(total_sum_of_calories))
+        return total_sum_of_calories
+        
+    def test_part_one(self):
+        """ Return the top elf calories """
+        return self.part_one() == 24000
+        
+    def test_part_two(self):
+        """ Return the sum of the top 3 elf calories """
+        return self.part_two() == 45000
