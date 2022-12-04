@@ -5,6 +5,19 @@ class DayFourSolution(BaseSolution):
     def get_puzzle_day(self):
         return "day4"
     
+    def _fill_pairing_range(self, pair):
+        """ We need to fill a set with our start - end """
+        this_range = pair.split("-")
+        start = int(this_range[0])
+        end = int(this_range[1])
+        pairing_range = set()
+        
+        # Add Start to End + 1 for our 
+        for i in range(start, end + 1):
+            pairing_range.add(i)
+            
+        return pairing_range
+    
     def part_one(self):
         """ We want to find the assignment pairs where one range fully contain the other
             we can do this by filling a set with start to end and unioning the set ^^ 
@@ -26,19 +39,6 @@ class DayFourSolution(BaseSolution):
             
         return counter
         
-    def _fill_pairing_range(self, pair):
-        """ We need to fill a set with our start - end """
-        this_range = pair.split("-")
-        start = int(this_range[0])
-        end = int(this_range[1])
-        pairing_range = set()
-        
-        # Add Start to End + 1 for our 
-        for i in range(start, end + 1):
-            pairing_range.add(i)
-            
-        return pairing_range
-    
     def part_two(self):
         """ 
         We want to find  any overlapping_pairings ^^, same as part one, change if statement ^^ 
