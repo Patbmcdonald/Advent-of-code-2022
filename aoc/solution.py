@@ -39,17 +39,23 @@ class BaseSolution:
         self.use_test_data = True
         print(f"{bcolors.OKCYAN}Executing {self.get_puzzle_day()} test cases.\n")
         print(f"{bcolors.WARNING}RUNNING Part One Test.")
-        if self.test_part_one():
+        
+        part_one_solution = self.part_one()
+        
+        if part_one_solution == self.part_one_expected_test_value() :
             print(f"{bcolors.OKGREEN}PASSED Part One Test.")
         else:
-            print(f"{bcolors.FAIL}FAILED Part One Test.")
+            print(f"{bcolors.FAIL}FAILED Part One Test. Actual: {part_one_solution} Expected: {self.part_one_expected_test_value()}")
         print("\n")
 
         print(f"{bcolors.WARNING}RUNNING Part Two Test.")
-        if self.test_part_two():
+        
+        part_two_solution = self.part_two()
+        
+        if part_two_solution == self.part_two_expected_test_value():
             print(f"{bcolors.OKGREEN}PASSED Part Two Test.")
         else:
-            print(f"{bcolors.FAIL}FAILED Part Two Test.")
+            print(f"{bcolors.FAIL}FAILED Part Two Test. Actual: {part_two_solution} Expected: {self.part_two_expected_test_value()}")
         
     def run_puzzle(self):
         """ Run the puzzle solution. """
