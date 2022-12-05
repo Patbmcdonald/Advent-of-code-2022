@@ -1,4 +1,4 @@
-from aoc.helper import read_lines_to_list, bcolors
+from aoc.helper import read_lines_to_list, bcolors, get_reader
 from abc import abstractmethod
 
 class BaseSolution:
@@ -89,6 +89,13 @@ class BaseSolution:
             return self._get_test_data(overwrite_day=overwrite_day)
         
         return read_lines_to_list("./data/puzzle_input/"+overwrite_day+".txt") if overwrite_day  else read_lines_to_list("./data/puzzle_input/"+self.get_puzzle_day()+".txt") 
+    
+    def _get_puzzle_input_reader(self,overwrite_day:str=None):
+        if self.use_test_data:
+            return get_reader("./data/test_data/"+overwrite_day+".txt") if overwrite_day  else get_reader("./data/test_data/"+self.get_puzzle_day()+".txt") 
+                
+        return get_reader("./data/puzzle_input/"+overwrite_day+".txt") if overwrite_day  else get_reader("./data/puzzle_input/"+self.get_puzzle_day()+".txt") 
+    
     
     def _get_puzzle_prompt(self, overwrite_day:str=None) -> list:
         temp_lines = read_lines_to_list("./data/prompts/"+overwrite_day+".txt") if overwrite_day  else read_lines_to_list("./data/prompts/"+self.get_puzzle_day()+".txt") 

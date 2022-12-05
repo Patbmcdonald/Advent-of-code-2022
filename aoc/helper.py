@@ -5,9 +5,14 @@ def read_lines_to_list(input_name:str) -> list:
     lines = []
 
     for line in open(input_name, 'r').readlines():
-        lines.append(line.strip())
+        lines.append(line.rstrip())
         
     return lines
+
+
+def get_reader(input_name:str) -> list:
+    """ Read Lines from inputed file location """
+    return open(input_name, 'r')
 
 
 
