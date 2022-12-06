@@ -77,9 +77,8 @@ class DayFiveSolution(BaseSolution):
             # delete the source
             crates[source-1] = crates[source-1][:-number]
 
-        final_answer = "".join(ele[-1] for ele in crates)
-
-        return final_answer
+        # Get the top of each stack
+        return "".join(ele[-1] for ele in crates)
         
     def part_two(self):
         crates, instructions = self._parse_input()
@@ -94,7 +93,5 @@ class DayFiveSolution(BaseSolution):
             crates[source-1] = crates[source-1][:-number]
 
         # Get the top of each stack
-        final_answer = "".join(ele[-1] for ele in crates)
-
-        return final_answer
+        return "".join(ele[-1] for ele in crates)
         
