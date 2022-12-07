@@ -11,6 +11,7 @@
 | [Day 4](https://adventofcode.com/2022/day/4) | ⭐ | ⭐ |
 | [Day 5](https://adventofcode.com/2022/day/5) | ⭐ | ⭐ |
 | [Day 6](https://adventofcode.com/2022/day/6) | ⭐ | ⭐ |
+| [Day 7](https://adventofcode.com/2022/day/7) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
 Usage: python3 main.py run|test|show_prompt  <year|defaults-to-current-year> <day1-31>
