@@ -1,4 +1,4 @@
-from aoc.year_2022.solutions import DayOneSolution,DayTwoSolution,DayThreeSolution,DayFourSolution,DayFiveSolution,DaySixSolution, DaySevenSolution
+from aoc.year_2022.solutions import DayOneSolution,DayTwoSolution,DayThreeSolution,DayFourSolution,DayFiveSolution,DaySixSolution, DaySevenSolution, DayEightSolution
 SOLUTION_CASES = { 
     "day1" :  DayOneSolution,
     "day2" :  DayTwoSolution,
@@ -6,5 +6,6 @@ SOLUTION_CASES = {
     "day4" :  DayFourSolution,
     "day5" : DayFiveSolution,
     "day6" : DaySixSolution,
-    "day7" : DaySevenSolution
+    "day7" : DaySevenSolution,
+    "day8" : DayEightSolution
 }
