@@ -16,8 +16,8 @@ class DayNineSolution(BaseSolution):
         
         # Move the tail if we can move
         if abs(x_dist) > 1 or abs(y_dist) > 1:
-            next_x = tail[0] + (0 if x_dist == 0 else x_dist // abs(x_dist))
-            next_y = tail[1] + (0 if y_dist == 0 else y_dist // abs(y_dist))
+            next_x = tail[0] + (0 if x_dist == 0 else x_dist / abs(x_dist))
+            next_y = tail[1] + (0 if y_dist == 0 else y_dist / abs(y_dist))
             return (next_x, next_y)
         
         # Tail did not move
