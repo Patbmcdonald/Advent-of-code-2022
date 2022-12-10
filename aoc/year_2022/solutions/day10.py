@@ -38,12 +38,13 @@ class DayTenSolution(BaseSolution):
         return self._solve_fib(register_at_x_cycle_count, 20, 40)
         
     def part_two(self):
-        cmds = [x.replace('\n', '').split() for x in self._get_puzzle_input_reader().readlines()]
+        commands = [x.replace('\n', '').split() for x in self._get_puzzle_input_reader().readlines()]
         cycle_count = 0
         x_register = 1
         current_pos = 0
-        rows = ''      
-        for command in cmds:
+        current_row = ''
+        final_view = []      
+        for command in commands:
             name = command[0]
             for run_number in range(2 if name == 'addx' else 1):
                 cycle_count += 1
@@ -52,11 +53,16 @@ class DayTenSolution(BaseSolution):
                 if name == 'addx' and run_number == 1:
                     x_register += int(command[1]) 
                 if abs((current_pos % 40) - middle) <= 1:
-                    rows += '#'
+                    current_row += '#'
                 else:
-                    rows += '.'
+                    current_row += '.'
                 if cycle_count in (40, 80, 120, 160, 200, 240):
-                    print(rows)
-                    rows = ''
+                    final_view.append(current_row)
+                    current_row = ''
+                    
+        # Print Final View           
+        for row in final_view:
+            print(row)
+            
         return 0
         
