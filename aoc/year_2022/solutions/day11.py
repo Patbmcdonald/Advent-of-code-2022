@@ -44,22 +44,18 @@ class Monkey:
     def _run_item_operation(self, power_value) -> int:
         """Run the monkey operation"""
         x = int(self.operations[0].replace("old", str(power_value)))
-        sign = self.operations[1]
         y = int(self.operations[2].replace("old", str(power_value)))
+        sign = self.operations[1]
         
         if sign == "+":
-            return x+y
+            return x + y
         elif sign == "-":
-            return x-y
+            return x - y
         elif sign == "*":
-            return x*y
+            return x * y
         else:
-            return x/y
+            return x / y
         
-    def _passed_test(self, power_value):
-        """ Did we pass the test? """
-        return 
-
     def __repr__(self) -> str:  
         return f"Monkey {self.id}, Items: {self.items}, mod_number: {self.mod_number}, true_monkey: {self.true_monkey}, false_monkey: {self.false_monkey}"   
 
