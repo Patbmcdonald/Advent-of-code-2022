@@ -1,5 +1,4 @@
 from math import floor,lcm
-from math import lcm
 from aoc.solution import BaseSolution
 
 MONKEYS = {}
