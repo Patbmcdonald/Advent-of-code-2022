@@ -8,3 +8,4 @@ from .day7 import DaySevenSolution
 from .day8 import DayEightSolution
 from .day9 import DayNineSolution
 from .day10 import DayTenSolution
+from .day11 import DayElevenSolution
